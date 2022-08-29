@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
   */
   constructor(private router: Router, private toastController: ToastController) {
     this.usuario = new Usuario();
+    this.usuario.correo = '';
     this.usuario.nombreUsuario = '';
     this.usuario.password = '';
   }
@@ -78,7 +79,7 @@ export class LoginPage implements OnInit {
         usuario: this.usuario
       }
     };
-    this.router.navigate(['/home'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
+    this.router.navigate(['/inicio'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
   }
 
   /*

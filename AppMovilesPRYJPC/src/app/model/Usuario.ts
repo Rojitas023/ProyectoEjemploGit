@@ -1,15 +1,14 @@
 export class Usuario {
+  public correo = '';
   public nombreUsuario = '';
   public password = '';
 
-  public validarNombreUsuario(): string {
-    if (this.nombreUsuario.trim() === '') {
-      return 'Para ingresar al sistema debe ingresar un nombre de usuario.';
+
+
+  public validarCorreoUsuario(): string {
+    if(this.correo.trim() === ''){
+      return 'Para iniciar debe ingresar un correo'
     }
-    if (this.nombreUsuario.length < 3 || this.nombreUsuario.length > 8) {
-      return 'El nombre de usuario debe tener entre 3 y 8 caracteres.';
-    }
-    return '';
   }
 
   public validarPassword(): string {
@@ -28,7 +27,9 @@ export class Usuario {
   }
 
   public validarUsuario(): string {
-    return this.validarNombreUsuario()
+    return this.validarCorreoUsuario()
       || this.validarPassword();
   }
+
+
 }
