@@ -34,7 +34,9 @@ this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresió
   }
 });
 }
-
+validarqr(): void{
+  this.router.navigate(['/qrreader'])
+}
   ngOnInit() {
   }
 

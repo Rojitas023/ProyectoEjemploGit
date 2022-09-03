@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'incorrecto',
     loadChildren: () => import('./incorrecto/incorrecto.module').then( m => m.IncorrectoPageModule)
+  },
+  {
+    path: 'qrreader',
+    loadChildren: () => import('./qrreader/qrreader.module').then( m => m.QrreaderPageModule)
   },
 
 ];
