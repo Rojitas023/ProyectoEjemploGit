@@ -18,6 +18,22 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'correo',
+    loadChildren: () => import('./correo/correo.module').then( m => m.CorreoPageModule)
+  },
+  {
+    path: 'pregunta',
+    loadChildren: () => import('./pregunta/pregunta.module').then( m => m.PreguntaPageModule)
+  },
+  {
+    path: 'correcto',
+    loadChildren: () => import('./correcto/correcto.module').then( m => m.CorrectoPageModule)
+  },
+  {
+    path: 'incorrecto',
+    loadChildren: () => import('./incorrecto/incorrecto.module').then( m => m.IncorrectoPageModule)
+  },
 
 ];
 

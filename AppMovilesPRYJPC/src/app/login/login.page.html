@@ -14,6 +14,7 @@
     <ion-label>
     </ion-label>
     <img src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="">
+    <h5>Sistema de Asistencia DUOC</h5>
   </ion-title>
 
 
@@ -43,7 +44,7 @@
         <ion-item>
           <ion-label position="floating">Correo</ion-label>
           <!-- Usamos ngModel para indicarle al input con que propiedad del controlador va a trabajar -->
-          <ion-input   type="email"  [(ngModel)]="usuario.correo"></ion-input>
+          <ion-input   type="text"  [(ngModel)]="usuario.correo"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating" >Contraseña</ion-label>
@@ -67,7 +68,7 @@
 
       <ion-label>
         <br>
-        <a class="duoc" routerLink="" color="secondary" type="Underline">Recupera tu contraseña</a>
+        <a class="duoc" routerLink="" color="secondary" (click)="recupera()">Recupera tu contraseña</a>
       </ion-label>
     </ion-card>
   </div>

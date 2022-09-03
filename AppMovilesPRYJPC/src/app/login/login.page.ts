@@ -36,9 +36,9 @@ export class LoginPage implements OnInit {
     mientras que "router" con minúscula es el objeto de esa clase, que usaremos para ejecutar el método "navigate".
   */
   constructor(private router: Router, private toastController: ToastController) {
-    this.usuario = new Usuario();
+    this.usuario = new Usuario('','','','','');
+    // this.usuario.correo = '';
     this.usuario.correo = '';
-    this.usuario.nombreUsuario = '';
     this.usuario.password = '';
   }
 
@@ -52,7 +52,7 @@ export class LoginPage implements OnInit {
           para el caso en que ya quedó lista la página de login y me interesa probar las otras páginas,
           de este modo se saltará el login y no tendrás que estar digitando los datos todo el tiempo.
     */
-    // this.usuario.nombreUsuario = 'cgomez';
+    // this.usuario.correo = 'cgomez';
     // this.usuario.password = '5678';
     // this.ingresar();
   }
@@ -82,20 +82,26 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/inicio'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
   }
 
+  recupera(){
+    this.router.navigate(['/correo'])
+  }
   /*
     Usaremos validateModel para verificar que se cumplan las validaciones de los campos del formulario
   */
-  public validarUsuario(usuario: Usuario): boolean {
+    public validarUsuario(usuario: Usuario): boolean {
 
-    const mensajeError = usuario.validarUsuario();
+      const usu = this.usuario.buscarUsuarioValido(
+        this.usuario.correo, this.usuario.password);
 
-    if (mensajeError) {
-      this.mostrarMensaje(mensajeError);
-      return false;
+      if (usu) {
+        this.usuario = usu;
+        return true;
+      }
+      else {
+        this.mostrarMensaje('Las credenciales no son correctas!');
+        return false;
+      }
     }
-
-    return true;
-  }
 
   /**
    * Muestra un toast al usuario

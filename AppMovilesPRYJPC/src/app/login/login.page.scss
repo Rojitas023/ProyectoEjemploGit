@@ -3,8 +3,16 @@ ion-content{
     --padding-bottom: 20px;
     --padding-end: 20px;
     --padding-start: 20px;
+
 }
 ion-item{
     --padding-bottom: 10px;
 }
 
+ion-card{
+  rotate: 34px;
+}
+
+h5{
+  color: rgb(25, 44, 99);
+}
