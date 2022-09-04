@@ -98,7 +98,7 @@ export class LoginPage implements OnInit {
         return true;
       }
       else {
-        this.mostrarMensaje('Las credenciales no son correctas!');
+        this.mostrarMensaje('Usuario o contraseña incorrectos');
         return false;
       }
     }

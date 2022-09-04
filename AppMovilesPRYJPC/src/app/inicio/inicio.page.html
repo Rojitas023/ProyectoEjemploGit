@@ -1,12 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title #titulo class="ion-text-left ion-text">
+        <div>
+          <ion-img src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="DFSDDFDFSS" >
+          </ion-img>
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<br>
+<br>
+<br>
 
+  <ion-card-title class="ion-text-center">
+    <h4>¡Bienvenido!</h4>
+  </ion-card-title>
+<br>
   <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.nombre }}</p></strong>
-  <ion-button shape="block" (click)="validarqr()">Ir al qr</ion-button>
+
+  <ion-card-title class="ion-text-center">
+    <h5>Ingrese para poder escanear el codigo QR y guardar su asistencia</h5>
+  </ion-card-title>
+  <br>
+  <ion-button shape="block" (click)="validarqr()">QR de asistencia</ion-button>
 </ion-content>
 

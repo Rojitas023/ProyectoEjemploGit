@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Usuario } from '../model/Usuario';
@@ -9,7 +9,9 @@ import { AnimationController, Animation } from '@ionic/angular';
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class InicioPage implements OnInit, AfterViewInit {
+  @ViewChild('titulo', { read: ElementRef, static: true}) titulo: ElementRef;
+
 
   public usuario: Usuario;
 
@@ -17,7 +19,7 @@ export class InicioPage implements OnInit {
     private activeroute: ActivatedRoute
   , private router: Router
   , private alertController: AlertController
-  , private animationCtrl: AnimationController) {
+  , private AnimationController: AnimationController) {
 
 // Se llama a la ruta activa y se obtienen sus parámetros mediante una subscripcion
 this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresión lambda
@@ -40,6 +42,18 @@ validarqr(): void{
   this.router.navigate(['/qrreader'])
 }
   ngOnInit() {
+  }
+
+  public ngAfterViewInit(): void {
+    const animation = this.animationController
+      .create()
+      .addElement(this.titulo.nativeElement)
+      .iterations(Infinity)
+      .duration(6000)
+      .fromTo('transform', 'translate(0%)', 'translate(100%)')
+      .fromTo('opacity', 1.2, 0);
+
+    animation.play();
   }
 
 }
