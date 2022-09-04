@@ -5,8 +5,10 @@
     <ion-toolbar color="secondary">
       <ion-title #titulo class="ion-text-left ion-text">
         <div>
-          <ion-img src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="DFSDDFDFSS" >
+          <ion-img  src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="DFSDDFDFSS" > <h4>atorres@duocuc.cl</h4>
+
           </ion-img>
+
         </div>
       </ion-title>
     </ion-toolbar>
@@ -14,16 +16,19 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 
   <ion-card-title class="ion-text-center">
-    <h4>¡Bienvenido!</h4>
+    <h3>¡Bienvenido!</h3>
   </ion-card-title>
-<br>
+
   <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.nombre }}</p></strong>
 
   <ion-card-title class="ion-text-center">
     <h5>Ingrese para poder escanear el codigo QR y guardar su asistencia</h5>
   </ion-card-title>
+  <br>
   <br>
   <ion-button shape="block" (click)="validarqr()">QR de asistencia</ion-button>
 </ion-content>
