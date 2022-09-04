@@ -6,28 +6,28 @@ export const enterAnimation = (baseEl: HTMLElement, opts?: any): Animation => {
     console.log('baseEl: ', baseEl)
     console.log('opts: ', opts)
 
-    const AnimationController = new AnimationController
+    const animationCtrl = new AnimationController
 
     if (opts.direction === 'forward') {
-        return AnimationController.create()
+        return animationCtrl.create()
         .addElement(opts.enteringEl)
         .duration(DURATION)
         .easing('ease-in')
         .fromTo('opacity', 0, 1)
     } else {
-            const rootAnimation = AnimationController.create()
+            const rootAnimation = animationCtrl.create()
             .addElement(opts.enteringEl)
             .duration(DURATION)
             .easing('ease-in')
             .fromTo('opacity', 0, 1)
 
-            const leavingAnimation = AnimationController.create()
+            const leavingAnimation = animationCtrl.create()
             .addElement(opts.leavingEl)
             .duration(DURATION)
             .easing('ease-out')
             .fromTo('opacity', 1, 0)
 
-            return AnimationController.create().addAnimation([rootAnimation, leavingAnimation]);
+            return animationCtrl.create().addAnimation([rootAnimation, leavingAnimation])
     }
 
 }

@@ -19,7 +19,8 @@ export class InicioPage implements OnInit, AfterViewInit {
     private activeroute: ActivatedRoute
   , private router: Router
   , private alertController: AlertController
-  , private AnimationController: AnimationController) {
+  , private animationCtrl: AnimationController
+  , private animationController: AnimationController) {
 
 // Se llama a la ruta activa y se obtienen sus parámetros mediante una subscripcion
 this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresión lambda
