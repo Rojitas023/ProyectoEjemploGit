@@ -14,3 +14,8 @@ presionarlo, de esa forma traeremos (actualizaremos) lo de la nube a nuestro pc.
 Para subir, FETCH para fijarse. 
 Hacer el COMMIT con nombre,
 y el PUSH, para subir del pc a la nube.
+
+Cosas manuales a instalar
+
+npm install
+npm install jsqr --save
