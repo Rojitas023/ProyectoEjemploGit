@@ -24,6 +24,10 @@ export class CorreoPage implements OnInit {
   ngOnInit() {
   }
 
+  login(): void{
+    this.router.navigate(['/login'])
+  }
+
   public recucontra(): void{
     if(!this.validarCorreo(this.usuario)) {
       return;

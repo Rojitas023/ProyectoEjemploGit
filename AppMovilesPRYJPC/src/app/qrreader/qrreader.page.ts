@@ -1,7 +1,10 @@
-
+import { JsonPipe } from '@angular/common';
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import jsQR, { QRCode } from 'jsqr';
+import { Router, NavigationExtras } from '@angular/router';
+import { AnimationController, Animation } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-qrreader',
@@ -9,6 +12,9 @@ import jsQR, { QRCode } from 'jsqr';
   styleUrls: ['./qrreader.page.scss'],
 })
 export class QrreaderPage implements AfterViewInit {
+
+  @ViewChild('titulo', { read: ElementRef, static: true}) titulo: ElementRef;
+
 
   @ViewChild('video', { static: false })
   private video: ElementRef;
@@ -23,19 +29,39 @@ export class QrreaderPage implements AfterViewInit {
   public datosQR = '';
   public loading: HTMLIonLoadingElement = null;
 
-  public constructor(private loadingController: LoadingController) {
+  public constructor(private loadingController: LoadingController, private router: Router, private animationController: AnimationController) {
 
   }
 
-  ngAfterViewInit() {
+
+
+  public ngAfterViewInit(): void {
+    const animation = this.animationController
+      .create()
+      .addElement(this.titulo.nativeElement)
+      .iterations(Infinity)
+      .duration(6000)
+      .fromTo('transform', 'translate(0%)', 'translate(100%)')
+      .fromTo('opacity', 1.2, 0);
+
+    animation.play();
+
     this.limpiarDatos();
+    localStorage.setItem('datos', this.datosQR);
   }
+
+volverinicio(): void{
+  this.router.navigate(['/inicio']);
+}
 
   public limpiarDatos(): void {
     this.escaneando = false;
     this.datosQR = '';
     this.loading = null;
     (document.getElementById('input-file') as HTMLInputElement).value = '';
+
+    localStorage.setItem('datos',     "{ \"sede\": \" \", \"idAsignatura\": \"\", \"seccion\": \" \", \"nombreAsignatura\": \" \", \"nombreProfesor\": \"  \",  \"dia\": \" \", \"bloqueInicio\": 0, \"bloqueTermino\": 0, \"horaInicio\": \"0 \", \"horaFin\": \" \" }");
+
   }
 
   public async comenzarEscaneoQR() {
@@ -69,7 +95,7 @@ export class QrreaderPage implements AfterViewInit {
     const qrCode: QRCode = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
     if (qrCode) {
       this.escaneando = false;
-      this.datosQR = qrCode.data
+      this.datosQR = JSON.parse(qrCode.data);
     }
     return this.datosQR !== '';
   }
@@ -112,4 +138,15 @@ export class QrreaderPage implements AfterViewInit {
     };
     img.src = URL.createObjectURL(file);
   }
+
+  async guardarRegistro(){
+
+    localStorage.setItem('datos',JSON.stringify(this.datosQR));
+    localStorage.setItem('guardado',JSON.stringify(this.datosQR));
+
+    console.log(localStorage)
+    console.log(this.datosQR)
+
+  }
+
 }

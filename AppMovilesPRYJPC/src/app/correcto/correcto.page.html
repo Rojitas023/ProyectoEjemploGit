@@ -1,9 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>correcto</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <br>
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+    </ion-label>
+    <img src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="">
+    <h5>Sistema de Asistencia DUOC</h5>
+  </ion-title>
+<br>
+
+<ion-card class="ion-text-center">
+
+  <div>
+    <ion-img class="ion-text-center" src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f60e.png " alt="B)"  >
+    </ion-img>
+  </div>
+  <ion-card-title class="ion-text-center">
+    <h4>¡CORRECTO!</h4>
+  </ion-card-title>
+  <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.nombre }}</p></strong>
+  <ion-card-title class="ion-text-center">
+    <h3>TU CONTRASEÑA ES</h3>
+  </ion-card-title>
+  <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.password }}</p></strong>
+</ion-card>
+
+<ion-button (click)="login()"  expand="full" shape="round">
+  Iniciar sesion
+</ion-button>
 
 </ion-content>
