@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Usuario } from '../model/Usuario';
+import { AnimationController, Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -15,7 +16,8 @@ export class InicioPage implements OnInit {
   constructor(
     private activeroute: ActivatedRoute
   , private router: Router
-  , private alertController: AlertController) {
+  , private alertController: AlertController
+  , private animationCtrl: AnimationController) {
 
 // Se llama a la ruta activa y se obtienen sus parámetros mediante una subscripcion
 this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresión lambda
