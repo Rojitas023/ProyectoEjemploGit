@@ -1,13 +1,20 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Lectura de Código QR</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title #titulo class="ion-text-left ion-text">
+      <div>
+        <ion-img src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="DFSDDFDFSS" >
+        </ion-img>
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-<br>
+
+
 
 <ion-content>
-
-  <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera" 
+<br>
+<br>
+  <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera"
     (change)="verificarArchivoConQR($event.target.files)" />
 
   <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
@@ -33,17 +40,34 @@
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
 
+
+
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Código QR</ion-card-title>
+      <ion-card-title>Mi clase</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <br>
-      Datos: {{ datosQR }}
-      <br><br>
-      Escaneando: {{ escaneando }}
-      <br>
+      <p><strong>Sede:</strong>  {{datosQR.sede}} <br>
+         <strong>Sigla:</strong>  {{datosQR.idAsignatura}} <br>
+         <strong>Seccion:</strong>  {{datosQR.seccion}} <br>
+         <strong>Nombre asignatura:</strong>  {{datosQR.nombreAsignatura}} <br>
+         <strong>Nombre profesor:</strong>  {{datosQR.nombreProfesor}} <br>
+         <strong>Dia:</strong>  {{datosQR.dia}} <br>
+         <strong>Bloque de inicio:</strong>  {{datosQR.bloqueInicio}} <br>
+         <strong>Bloque de termino:</strong>  {{datosQR.bloqueTermino}} <br>
+         <strong>Hora de inicio:</strong> {{datosQR.horaInicio}} <br>
+         <strong>Hora de termino:</strong>  {{datosQR.horaFin}} <br>
+      </p>
+
+      <ion-button color="warning" (click)="guardarRegistro()" expand="block" fill="clear" shape="round">
+        Guardar
+      </ion-button>
+
     </ion-card-content>
   </ion-card>
-  
+
+
+  <ion-button (click)="volverinicio()"  expand="full" shape="round">
+    Cerrar sesion
+  </ion-button>
 </ion-content>

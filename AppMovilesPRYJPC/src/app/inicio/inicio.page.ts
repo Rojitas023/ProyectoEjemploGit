@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Usuario } from '../model/Usuario';
 import { AnimationController, Animation } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
