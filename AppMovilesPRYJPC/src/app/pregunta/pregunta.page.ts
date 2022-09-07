@@ -16,7 +16,7 @@ export class PreguntaPage implements OnInit {
   public usuario: Usuario;
 
   constructor(private router: Router, private toastController: ToastController, private activeroute: ActivatedRoute, private alertController: AlertController) {
-    this.usuario = new Usuario('','','Ana Torres Leiva','¿Cual es el nombre de su mascota?','');
+    this.usuario = new Usuario('','','','','');
     // this.usuario.correo = '';
     this.usuario.correo = 'atorres@duocuc.cl';
     this.usuario.password = '1234';
@@ -50,8 +50,8 @@ export class PreguntaPage implements OnInit {
 
   public validarRespuesta(usuario: Usuario): boolean {
 
-    const res = this.usuario.buscarCorreoValido(
-      this.usuario.correo);
+    const res = this.usuario.buscarRespuestaValido(
+      this.usuario.respuestaSecreta);
 
     if (res) {
       this.usuario = res;
