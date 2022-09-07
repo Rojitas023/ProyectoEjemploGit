@@ -36,9 +36,9 @@ export class Usuario {
       usu => usu.correo === correo && usu.password === password);
   }
 
-  public buscarCorreoValido(correo: string,): Usuario {
+  public buscarCorreoValido(correo: string): Usuario {
     return this.listaUsuariosValidos().find(
-      cor =>  cor.correo === correo
+      usu => usu.correo === correo
     );
   }
 

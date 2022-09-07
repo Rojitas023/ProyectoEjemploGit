@@ -1,81 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-// La clase ToastController sirve para mostrar mensajes emergente que duran un par de segundos
-import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
-import { AlertController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pregunta',
   templateUrl: './pregunta.page.html',
   styleUrls: ['./pregunta.page.scss'],
 })
-export class PreguntaPage implements OnInit {
+export class PreguntaPage {
 
-  public usuario: Usuario;
-
-  constructor(private router: Router, private toastController: ToastController, private activeroute: ActivatedRoute, private alertController: AlertController) {
-    this.usuario = new Usuario('','','','','');
-    // this.usuario.correo = '';
-    this.usuario.correo = 'atorres@duocuc.cl';
-    this.usuario.password = '1234';
+  respuesta = '';
+  
+  constructor(private router: Router) {
+    this.respuesta = '';
   }
-
-  ngOnInit() {
-  }
-
-
-  login(): void{
+  
+  volverAlLogin() {
     this.router.navigate(['/login'])
   }
-
-
-  public respuesta(): void{
-    if(!this.validarRespuesta(this.usuario)) {
-      return;
-    }
-
-    this.mostrarMensaje('¡Bienvenido!');
-
-    const navigationExtras: NavigationExtras = {
-      state: {
-        usuario: this.usuario
-      }
-    };
-    this.router.navigate(['/correcto'], navigationExtras);
-
-
-  }
-
-  public validarRespuesta(usuario: Usuario): boolean {
-
-    const res = this.usuario.buscarRespuestaValido(
-      this.usuario.respuestaSecreta);
-
-    if (res) {
-      this.usuario = res;
-      return true;
+  
+  recuperarPassword() {
+    const usu = new Usuario('','','','','');
+    const usuEncontrado = usu.buscarRespuestaValido(this.respuesta);
+    if (usuEncontrado) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: usuEncontrado
+        }
+      };
+      this.router.navigate(['/correcto'], navigationExtras);
     }
     else {
-      this.mostrarMensaje('La respuesta es incorrecta');
       this.router.navigate(['/incorrecto']);
-      return false;
     }
+    this.respuesta = '';
   }
-
-/**
- * Muestra un toast al usuario
- *
- * @param mensaje Mensaje a presentar al usuario
- * @param duracion Duración el toast, este es opcional
- */
-async mostrarMensaje(mensaje: string, duracion?: number) {
-  const toast = await this.toastController.create({
-      message: mensaje,
-      duration: duracion? duracion: 2000
-    });
-  toast.present();
-}
-
 }
