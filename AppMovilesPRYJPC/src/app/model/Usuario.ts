@@ -42,9 +42,9 @@ export class Usuario {
     );
   }
 
-  public buscarRespuestaValido(respuestaSecreta: string,): Usuario {
+  public buscarRespuestaValido(correo: string, respuestaSecreta: string): Usuario {
     return this.listaUsuariosValidos().find(
-      res => res.respuestaSecreta === respuestaSecreta
+      usu => usu.correo === correo && usu.respuestaSecreta === respuestaSecreta
     );
   }
 

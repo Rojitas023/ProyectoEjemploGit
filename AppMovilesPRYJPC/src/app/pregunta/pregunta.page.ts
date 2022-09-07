@@ -9,10 +9,18 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class PreguntaPage {
 
+  usuario: Usuario = new Usuario('','','','','');
   respuesta = '';
   
   constructor(private router: Router) {
     this.respuesta = '';
+
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.usuario = this.router.getCurrentNavigation().extras.state.usuario;
+    }
+    else {
+      this.volverAlLogin();
+    }
   }
   
   volverAlLogin() {
@@ -20,8 +28,8 @@ export class PreguntaPage {
   }
   
   recuperarPassword() {
-    const usu = new Usuario('','','','','');
-    const usuEncontrado = usu.buscarRespuestaValido(this.respuesta);
+  
+    const usuEncontrado = this.usuario.buscarRespuestaValido(this.usuario.correo, this.respuesta);
     if (usuEncontrado) {
       const navigationExtras: NavigationExtras = {
         state: {

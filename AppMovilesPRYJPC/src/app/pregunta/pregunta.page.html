@@ -26,7 +26,7 @@
           <ion-input type="text" [(ngModel)]="respuesta"></ion-input>
           <ion-row>
             <ion-col size="12">
-              <ion-button shape="block" (click)="respuesta()"><h2>Verificar</h2></ion-button>
+              <ion-button shape="block" (click)="recuperarPassword()"><h2>Verificar</h2></ion-button>
             </ion-col>
           </ion-row>
         </ion-item>
@@ -39,7 +39,7 @@
   <br>
   <br>
   <p align="right"> <input type="button" value="Click Me" /> </p>
-  <ion-button (click)="login()"  expand="full" shape="round">
+  <ion-button (click)="volverAlLogin()"  expand="full" shape="round">
       Iniciar sesion
   </ion-button>
 
