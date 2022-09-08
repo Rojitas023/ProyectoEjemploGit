@@ -19,7 +19,7 @@
 
   <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
     <ion-icon slot="start" name="camera"></ion-icon>
-    Cargar Imagen con Código QR
+    Cargar Código QR
   </ion-button>
 
   <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
@@ -44,7 +44,7 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Mi clase</ion-card-title>
+      <ion-card-title>Contenido de mi clase</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p><strong>Sede:</strong>  {{datosQR.sede}} <br>
