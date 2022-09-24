@@ -28,6 +28,8 @@ export class Usuario {
       , '¿Cuál es el nombre de su mejor amigo?', 'juanito'));
     lista.push(new Usuario('cfuentes@duocuc.cl', 'asdf', 'Carla Fuentes González'
       , '¿Cuál es lugar de nacimiento de su madre?', 'valparaiso'));
+      lista.push(new Usuario('azapata@duocuc.cl', '4321', 'armando zapata gonzales'
+      , '¿Animal favorito?', 'gato'));
     return lista;
   }
 

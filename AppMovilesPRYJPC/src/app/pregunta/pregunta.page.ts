@@ -11,7 +11,7 @@ export class PreguntaPage {
 
   usuario: Usuario = new Usuario('','','','','');
   respuesta = '';
-  
+
   constructor(private router: Router) {
     this.respuesta = '';
 
@@ -22,13 +22,15 @@ export class PreguntaPage {
       this.volverAlLogin();
     }
   }
-  
+
   volverAlLogin() {
     this.router.navigate(['/login'])
   }
-  
+
+
+
   recuperarPassword() {
-  
+
     const usuEncontrado = this.usuario.buscarRespuestaValido(this.usuario.correo, this.respuesta);
     if (usuEncontrado) {
       const navigationExtras: NavigationExtras = {

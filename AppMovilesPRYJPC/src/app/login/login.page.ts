@@ -79,7 +79,8 @@ export class LoginPage implements OnInit {
         usuario: this.usuario
       }
     };
-    this.router.navigate(['/inicio'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
+    this.router.navigate(['/inicio'], navigationExtras);
+    this.usuario.correo = ""; // Navegamos hacia el Home y enviamos la información extra
   }
 
   recupera(){
