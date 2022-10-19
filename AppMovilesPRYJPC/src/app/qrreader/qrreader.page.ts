@@ -125,10 +125,6 @@ volverinicio(): void{
     this.escaneando = false;
   }
 
-  public cargarImagenDesdeArchivo(): void {
-    this.limpiarDatos();
-    this.fileinput.nativeElement.click();
-  }
 
   public verificarArchivoConQR(files: FileList): void {
     const file = files.item(0);

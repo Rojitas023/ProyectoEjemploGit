@@ -19,22 +19,22 @@
       </ion-card-title>
       <ion-card-content>
         <ion-item>
-          <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.nombre }}</p></strong>
+          <strong><p *ngIf="usuario" class="ion-te">{{ usuario.nombre }}</p></strong>
           <strong><p *ngIf="usuario" class="ion-text-center">{{ usuario.preguntaSecreta }}</p></strong>
 
           <ion-label position="floating">Respuesta</ion-label>
           <ion-input type="text" [(ngModel)]="respuesta"></ion-input>
-          <ion-row>
-            <ion-col size="12">
-              <ion-button shape="block" (click)="recuperarPassword()"><h2>Verificar</h2></ion-button>
-            </ion-col>
-          </ion-row>
+
         </ion-item>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button shape="block" (click)="recuperarPassword()"><h2>Verificar</h2></ion-button>
+          </ion-col>
+        </ion-row>
       </ion-card-content>
     </ion-card>
 
   </div>
-  <br>
   <br>
   <br>
   <br>

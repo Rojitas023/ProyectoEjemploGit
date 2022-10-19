@@ -13,14 +13,9 @@
 
 <ion-content>
 <br>
-<br>
+
   <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera"
     (change)="verificarArchivoConQR($event.target.files)" />
-
-  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
-    <ion-icon slot="start" name="camera"></ion-icon>
-    Cargar Código QR
-  </ion-button>
 
   <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
     <ion-icon slot="start" name="videocam-outline"></ion-icon>
