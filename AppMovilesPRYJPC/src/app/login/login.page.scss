@@ -9,7 +9,11 @@ ion-item{
     --padding-bottom: 10px;
 }
 
-ion-card{
-  rotate: 34px;
+ion-card {
+  border-radius: 15%;
+
+
+  box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 5px 0px;
+
 }
 
