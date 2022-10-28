@@ -1,3 +1,21 @@
-<p>
-  Hola mundo
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sistema de Asistencia DUOC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+ 
+<ion-content
+    [fullscreen]="true"
+    [style.--background]="escaneando?'#00000000':'#ffffff'">
+  
+      <ion-button class="scan-button2" expand="full" (click)="comenzarEscaneo()" [hidden]="escaneando">
+        Escanear código QR
+      </ion-button>
+    
+      <ion-button class="scan-button2" expand="full" (click)="detenerEscaneo()" [hidden]="!escaneando">
+        Detener escaneo de código QR
+      </ion-button> 
+
+  <div class="scan-box" [hidden]="!escaneando"></div>
+</ion-content>
