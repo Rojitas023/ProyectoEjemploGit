@@ -1,0 +1,49 @@
+
+
+
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title #titulo class="ion-text-left ion-text">
+        <div>
+          <ion-img  src="https://www.youniforms.cl/wp-content/uploads/2020/01/DUOC.png" alt="DFSDDFDFSS" > <h4>atorres@duocuc.cl</h4>
+
+          </ion-img>
+
+        </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-toolbar class="completo">
+    <ion-segment (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button value="inicio">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="qr">
+      <ion-icon name="qr-code-outline"></ion-icon>
+      <ion-label>QR</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="clase">
+      <ion-icon name="book-outline"></ion-icon>
+      <ion-label>Clase</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="foro">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Foro</ion-label>
+    </ion-segment-button>
+
+    </ion-segment>
+  </ion-toolbar>
+
+<br>
+
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+

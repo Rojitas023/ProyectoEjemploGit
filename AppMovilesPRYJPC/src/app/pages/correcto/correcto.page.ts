@@ -1,17 +1,16 @@
-import { AfterViewInit, Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from '../../model/Usuario';
 import { AlertController } from '@ionic/angular';
-import { Usuario } from '../model/Usuario';
 import { AnimationController, Animation } from '@ionic/angular';
 
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-correcto',
+  templateUrl: './correcto.page.html',
+  styleUrls: ['./correcto.page.scss'],
 })
-export class InicioPage implements OnInit, AfterViewInit {
-  @ViewChild('titulo', { read: ElementRef, static: true}) titulo: ElementRef;
+export class CorrectoPage implements OnInit {
 
 
   public usuario: Usuario;
@@ -40,22 +39,11 @@ this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresió
   }
 });
 }
-validarqr(): void{
-  this.router.navigate(['/qrreader'])
-}
+
   ngOnInit() {
   }
 
-  public ngAfterViewInit(): void {
-    const animation = this.animationController
-      .create()
-      .addElement(this.titulo.nativeElement)
-      .iterations(Infinity)
-      .duration(6000)
-      .fromTo('transform', 'translate(0%)', 'translate(100%)')
-      .fromTo('opacity', 1.2, 0);
-
-    animation.play();
+  login(): void{
+    this.router.navigate(['/login'])
   }
-
 }
