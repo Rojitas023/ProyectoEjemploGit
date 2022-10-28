@@ -53,30 +53,47 @@
     </ion-grid>
 
   </ion-card>
+  <ion-content class="ion-padding">
+    <ion-button id="open-modal" expand="block">Ver publicaciones recientes</ion-button>
+    <p>{{ message }}</p>
+    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Volver</ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item>
+            <ion-card *ngFor="let p of publicaciones; let i=index; trackBy: getIdentificadorItemPublicacion">
 
-  <ion-card class="sin-bordes">
-    <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
-  </ion-card>
-
-  <ion-card *ngFor="let p of publicaciones; let i=index; trackBy: getIdentificadorItemPublicacion">
-
-    <ion-card-header>
-      <h6>(Publicación #{{p.id}}) {{p.name}}</h6>
-      <h4>{{p.title}}</h4>
-    </ion-card-header>
-  
-    <ion-card-content>
-      {{p.body}}
-    </ion-card-content>
-
-    <ion-button (click)="editarPublicacion(p)">
-      <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
-    </ion-button>
-
-    <ion-button (click)="eliminarPublicacion(p)">
-      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-    </ion-button>
-
-  </ion-card>
-
-</ion-content>
+              <ion-card-header>
+                <h6>(Publicación #{{p.id}}) {{p.name}}</h6>
+                <h4>{{p.title}}</h4>
+              </ion-card-header>
+              <ion-label position="floating" color="Secondary">Cuerpo</ion-label>
+              <ion-textarea [(ngModel)]="publicacion.body"></ion-textarea>
+              <ion-card-content>
+                {{p.body}}
+              </ion-card-content>
+          
+              <ion-button (click)="editarPublicacion(p)">
+                <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+              </ion-button>
+          
+              <ion-button (click)="eliminarPublicacion(p)">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+          
+            </ion-card>
+          
+            <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+          </ion-item>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>

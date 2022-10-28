@@ -1,6 +1,10 @@
 import { APIClientService } from 'src/app/pages/services/apiclient.service';
 import { Component, OnInit, ɵisDefaultChangeDetectionStrategy } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { ViewChild } from '@angular/core';
+import { IonInfiniteScroll } from '@ionic/angular';
+import { IonModal } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
 
 @Component({
   selector: 'app-foro',
@@ -8,6 +12,23 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./foro.component.scss'],
 })
 export class ForoComponent {
+    @ViewChild(IonModal) modal: IonModal;
+
+
+  name: string;
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+
+  onWillDismiss(event: Event) {
+    const ev = event as CustomEvent<OverlayEventDetail<string>>;
+    if (ev.detail.role === 'confirm') {
+
+    }
+  }
+
 
   // Esta propiedad se liga por ngModel con el "ion-select" que muestra los usuarios "Publicadores".
   selectedUserId: number;
@@ -41,10 +62,12 @@ export class ForoComponent {
   // ocultar estos datos.
   publicacionSeleccionada: string;
 
-  constructor(
-    private api: APIClientService,
-    private toastController: ToastController) {
-  }
+  
+
+  constructor(private api: APIClientService,
+    private toastController: ToastController) {}
+
+  
 
   // El siguiente es uno de los eventos del ciclo de vida de las páginas en Ionic/Angular.
   // Se trata del evento "ionViewWillEnter" que ocurre justo cuando se va a entrar a la
