@@ -99,11 +99,7 @@ export class LoginPage implements OnInit {
         return true;
       }
       else {
-<<<<<<< Updated upstream
         this.mostrarMensaje('Usuario o contraseña incorrectos');
-=======
-        this.mostrarMensaje('Correo o contraseña incorrecto');
->>>>>>> Stashed changes
         return false;
       }
     }

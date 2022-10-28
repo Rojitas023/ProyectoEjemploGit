@@ -26,9 +26,6 @@ export class PreguntaPage {
   volverAlLogin() {
     this.router.navigate(['/login'])
   }
-validarqr(): void{
-  this.router.navigate(['/qrreader'])
-}
 
 
 
